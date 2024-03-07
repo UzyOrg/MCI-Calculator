@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, viewport-fit=cover"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://braze-images.com/appboy/communication/assets/code_assets/files/65e88a79c25dfc004b807810/original.css?1709738617" />
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+  </head>
+  <body>
+    <!-- Página 1 -->
+    <div class="container monto-page-container" id="mainPage">
+      <img
+        class="back-button"
+        src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e846b998004cf513e2/original.svg?1708716264"
+        alt=""
+        onclick="brazeBridge.logClick();brazeBridge.closeMessage()"
+      />
+      <p style="font-size: 26px">Simulador de Compras Diferidas</p>
+      <p>¿De cuánto es la compra que quisieras hacer para diferir a meses?</p>
+      <div class="monto-container" id="monto-container">
+        <span>Monto</span>
+        <div class="input-with-icon" id="input-with-icon">
+          <input class="numberInput" value="0" type="text" id="input" />
+          <p class="errorMessageInput" id="errorMessageInput">
+            Ingrese un valor mayor o igual a $500
+          </p>
+          <img src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e84aef44004bdb0435/original.svg?1708716264" alt="" />
+        </div>
+      </div>
+      <hr />
+      <div class="arrow-container">
+        <p>El monto mínimo es de $500</p>
+        <img src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e8d3bfee004d4be2f2/original.svg?1708716264" alt="" id="arrow" />
+      </div>
+      <hr />
+      <div class="card">
+        <p>
+          Este simulador te permite saber cuánto pagarás por diferir una compra
+          que todavía no haces
+        </p>
+        <p>Al usarlo no estás difiriendo ninguna compra.</p>
+      </div>
+    </div>
+    <!-- Fin Página 1 -->
+
+    <!-- Inicio Página 2 -->
+    <div class="container seleccion-plazo-page" id="page2">
+      <img
+        class="back-button"
+        src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e846b998004cf513e2/original.svg?1708716264"
+        alt=""
+        onclick=" backMainPage('page2')"
+      />
+      <div class="monto-a-simular-container">
+        <p>Monto a simular</p>
+        <div class="monto-a-simular-content">
+          <p id="monto-a-simular">$15,243.72</p>
+          <img
+            class="monto-a-simular-icon-edit"
+            id="monto-a-simular-icon-edit"
+            src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e84aef44004bdb0435/original.svg?1708716264"
+            alt=""
+            onclick="editarMonto()"
+          />
+        </div>
+        <p class="errorMessageInputEditar" id="errorMessageInputEditar">
+          Ingrese un valor mayor o igual a $500
+        </p>
+      </div>
+      <div class="monto-simulado-container">
+        <p id="plazo">12 pagos de <span id="pagoMensual">$1,495.07</span></p>
+        <p>Pagarías <span id="pagarias-text">$17,940.84</span></p>
+      </div>
+      <div class="tasa-preferencial-container">
+        <p>Tienes una tasa preferencial para diferir compras</p>
+      </div>
+      <hr />
+      <div class="elige-plazo-container">
+        <img src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e80a43c1004cc2223b/original.svg?1708716264" alt="" />
+        <p>Elige el plazo que te gustaría simular</p>
+      </div>
+      <div class="select-payment-card" id="select-payment-card">
+        <div class="pagos">
+          <p id="elegir-plazo-12"></p>
+          <input type="radio" name="group1" id="radio1" />
+          <label for="radio1"></label>
+        </div>
+        <hr />
+        <div class="pagos">
+          <p id="elegir-plazo-9"></p>
+          <input type="radio" name="group1" id="radio2" />
+          <label for="radio2"></label>
+        </div>
+        <hr />
+        <div class="pagos">
+          <p id="elegir-plazo-6"></p>
+          <input type="radio" name="group1" id="radio3" />
+          <label for="radio3"></label>
+        </div>
+        <hr />
+        <div class="pagos">
+          <p id="elegir-plazo-3"></p>
+          <input type="radio" name="group1" id="radio4" />
+          <label for="radio4"></label>
+        </div>
+      </div>
+      <div class="ver-dettalles-container">
+        <p id="ver-detalles">Ver más detalle de los pagos ></p>
+      </div>
+      <div class="card">
+        <p>
+          Este simulador te permite saber cuánto pagarás por diferir una compra
+          que todavía no haces
+        </p>
+        <p>Al usarlo no estás difiriendo ninguna compra.</p>
+      </div>
+      <button>Ir a Diferir Compras</button>
+    </div>
+
+    <!-- Inicio de página de resumen de plazos -->
+    <div class="container resumen-plazos-page" id="page3">
+      <img
+        class="back-button"
+        src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e846b998004cf513e2/original.svg?1708716264"
+        alt=""
+        onclick=" backMainPage('page3')"
+      />
+      <p class="page3Title">Así quedarían tus pagos</p>
+      <hr />
+      <div class="title-resumen-container">
+        <p>Pago</p>
+        <p>Deuda restante</p>
+      </div>
+      <hr />
+      <div class="resumen-pagos" id="resumen-pagos"></div>
+      <p>*El IVA no está incluido en las mensualidades.</p>
+      <p onclick="backMainPage('page3')" class="volver-simulador-page">
+        Volver al simulador >
+      </p>
+      <button>Ir a Diferir Compras</button>
+    </div>
+  </body>
+  <script src="./PageManagement.js"></script>
+  <script src="./FormatearNumeroAPesos.js"></script>
+  <script src="./ResumenPlazos.js"></script>
+  <script>
+    const inputMontoValidation = (input, cleave, page) => {
+      input.addEventListener("input", function () {
+        const rawValue = cleave.getRawValue().replace("$","");
+        if (rawValue < 500) {
+          document.getElementById("input").classList.remove("shake-element");
+          page == 1
+            ? (document.getElementById("errorMessageInput").style.display =
+                "block")
+            : (document.getElementById(
+                "errorMessageInputEditar"
+              ).style.display = "block");
+        } else {
+          page == 1
+            ? (document.getElementById("errorMessageInput").style.display =
+                "none")
+            : (document.getElementById(
+                "errorMessageInputEditar"
+              ).style.display = "none");
+        }
+      });
+    };
+  </script>
+  <script>
+
+    var montoFormatted = "";
+    var monto = "";
+    var plazo = 12;
+    var pagoMensualResumen = 0;
+    var tasaAnual = 0.87;
+    var tasaMensual = Math.round((tasaAnual / 12)*10000) / 10000.0;
+    var tasa_3m_pre = tasaMensual * (1-0.10)
+    var tasa_6m_pre = tasaMensual * (1-0.15)
+    var tasa_9m_pre = tasaMensual * (1-0.20)
+    var tasa_12m_pre = tasaMensual * (1-0.25)
+    var tasa_15m_pre = tasaMensual * (1-0.25)
+    var tasa_18m_pre = tasaMensual * (1-0.25)
+
+    var tasas = {
+      tasa_3m:  Math.round((tasa_3m_pre )*10000) / 10000.0,
+      tasa_6m: Math.round((tasa_6m_pre )*10000) / 10000.0,
+      tasa_9m: Math.round((tasa_9m_pre)*10000) / 10000.0,
+      tasa_12m: Math.round((tasa_12m_pre )*10000) / 10000.0,
+      tasa_15m: Math.round((tasa_15m_pre )*10000) / 10000.0,
+      tasa_18m: Math.round((tasa_18m_pre)*10000) / 10000.0,
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      let inputElement = document.getElementById("input");
+      var cleave = new Cleave(".numberInput", {
+        numeral: true,
+        numeralThousandsGroupStyle: "thousand",
+        prefix: "$",
+      });
+      inputMontoValidation(inputElement, cleave, 1);
+      const amountCheckArrow = document.getElementById("arrow");
+      amountCheckArrow.addEventListener("click", function () {
+        monto = Number(cleave.getRawValue().replace("$", ""));
+        montoFormatted = cleave.getFormattedValue();
+        console.log(monto);
+        console.log(montoFormatted);
+        if (monto >= 500) {
+          openNewPage("page2");
+          if (document.getElementById("monto-editado")) {
+            document.getElementById("errorMessageInputEditar").style.display =
+              "none";
+            document.getElementById(
+              "monto-editado"
+            ).outerHTML = `<p id="monto-a-simular">${montoFormatted}</p>`;
+            document.getElementById("monto-a-simular-icon-edit-OK").outerHTML =
+              '<img class="monto-a-simular-icon-edit" id="monto-a-simular-icon-edit" src="./icon-edit.svg" alt="" onclick="editarMonto()">';
+          } else {
+            let montoASimular = document.getElementById("monto-a-simular");
+            montoASimular.innerHTML = montoFormatted;
+          }
+          pintarPlazos();
+        } else {
+          return;
+        }
+      });
+      document
+        .getElementById("ver-detalles")
+        .addEventListener("click", function () {
+          const divElementt = document.getElementById("resumen-pagos");
+          openNewPage("page3");
+          setTimeout(function () {
+            closeBefore("page2");
+          }, 200);
+          ResumenPlazos(plazo, pagoMensualResumen, divElementt, monto, tasas);
+        });
+    });
+
+    const obtenerPagoMensual = (plazo) => {
+      const { tasa_3m, tasa_6m, tasa_9m, tasa_12m, tasa_15m } = tasas;
+      if (plazo === 3) {
+        const pagoMensualSinParsear =
+          monto *
+          ((tasa_3m * (1 + tasa_3m) ** plazo) / ((1 + tasa_3m) ** plazo - 1));
+        return pagoMensualSinParsear;
+      } else if (plazo === 6) {
+        const pagoMensualSinParsear =
+          monto *
+          ((tasa_6m * (1 + tasa_6m) ** plazo) / ((1 + tasa_6m) ** plazo - 1));
+        return pagoMensualSinParsear;
+      } else if (plazo === 9) {
+        const pagoMensualSinParsear =
+          monto *
+          ((tasa_9m * (1 + tasa_9m) ** plazo) / ((1 + tasa_9m) ** plazo - 1));
+        return pagoMensualSinParsear;
+      } else if (plazo === 12) {
+        const pagoMensualSinParsear =
+          monto *
+          ((tasa_12m * (1 + tasa_12m) ** plazo) /
+            ((1 + tasa_12m) ** plazo - 1));
+        return pagoMensualSinParsear;
+      } else if (plazo === 15) {
+        const pagoMensualSinParsear =
+          monto *
+          ((tasa_15m * (1 + tasa_15m) ** plazo) /
+            ((1 + tasa_15m) ** plazo - 1));
+        return pagoMensualSinParsear;
+      } else if (plazo === 18) {
+        const pagoMensualSinParsear =
+          monto *
+          ((tasa_15m * (1 + tasa_15m) ** plazo) /
+            ((1 + tasa_15m) ** plazo - 1));
+        return pagoMensualSinParsear;
+      }
+    };
+
+    function pintarPlazos() {
+      let plazo15 = document.getElementById("elegir-plazo-15");
+      if (document.getElementById("elegir-plazo-15")) {
+        document.getElementById("select-payment-card").innerHTML = "";
+        document.getElementById("select-payment-card").innerHTML = `
+      <div class="pagos">
+        <p id="elegir-plazo-12"></p>
+        <input type="radio" name="group1" id="radio1" />
+        <label for="radio1"></label>
+      </div>
+      <hr />
+      <div class="pagos">
+        <p id="elegir-plazo-9"></p>
+        <input type="radio" name="group1" id="radio2" />
+        <label for="radio2"></label>
+      </div>
+      <hr />
+      <div class="pagos">
+        <p id="elegir-plazo-6"></p>
+        <input type="radio" name="group1" id="radio3" />
+        <label for="radio3"></label>
+      </div>
+      <hr />
+      <div class="pagos">
+        <p id="elegir-plazo-3"></p>
+        <input type="radio" name="group1" id="radio4" />
+        <label for="radio4"></label>
+      </div>
+ `;
+      }
+      if (monto >= 3000) {
+        let pagoMensualSinParsear15Meses = obtenerPagoMensual(15);
+
+        document.getElementById("select-payment-card").insertAdjacentHTML(
+          "afterbegin",
+          `<div class="pagos">
+          <p id="elegir-plazo-15">15 pagos de ${FormatearNumeroAPesos(
+            pagoMensualSinParsear15Meses.toFixed(2)
+          )}</p>
+          <input type="radio" name="group1" id="radio5" />
+          <label for="radio5"></label>
+        </div>
+        <hr />`
+        );
+        let pagoMensualSinParsear18Meses = obtenerPagoMensual(18);
+        plazo = 18;
+        pagoMensualResumen = pagoMensualSinParsear18Meses;
+
+        document.getElementById("select-payment-card").insertAdjacentHTML(
+          "afterbegin",
+          `<div class="pagos">
+          <p id="elegir-plazo-18">18 pagos de ${FormatearNumeroAPesos(
+            pagoMensualSinParsear18Meses.toFixed(2)
+          )}</p>
+          <input type="radio" name="group1" id="radio6" />
+          <label for="radio6"></label>
+        </div>
+        <hr />`
+        );
+        let radioBtn5 = document.getElementById("radio5");
+        let radioBtn6 = document.getElementById("radio6");
+        radioBtn5.addEventListener("change", function () {
+          if (radioBtn5.checked) {
+            let pagoMensualParseado = obtenerPagoMensual(15);
+            handleRadioChange(15, pagoMensualParseado);
+
+            plazo = 15;
+            pagoMensualResumen = pagoMensualParseado;
+          }
+        });
+        radioBtn6.addEventListener("change", function () {
+          if (radioBtn6.checked) {
+            let pagoMensualParseado = obtenerPagoMensual(18);
+            handleRadioChange(18, pagoMensualParseado);
+            plazo = 18;
+            pagoMensualResumen = pagoMensualParseado;
+          }
+        });
+        document.getElementById("radio6").checked = "true";
+        document.getElementById("elegir-plazo-18").style.color = "#6168db";
+        (document.getElementById("elegir-plazo-18").style.fontFamily =
+          "PP Open Sans Bold"),
+          "sans-serif";
+        document.getElementById("plazo").firstChild.textContent =
+          "18 pagos de ";
+        document.getElementById(
+          "pagoMensual"
+        ).textContent = `${FormatearNumeroAPesos(
+          pagoMensualSinParsear18Meses.toFixed(2)
+        )}`;
+        document.getElementById(
+          "pagarias-text"
+        ).textContent = `${FormatearNumeroAPesos(
+          (pagoMensualSinParsear18Meses * 18).toFixed(2)
+        )}`;
+      }
+      let pagoMensualSinParsear3Meses = obtenerPagoMensual(3);
+      document.getElementById(
+        "elegir-plazo-3"
+      ).textContent = `3 pagos de ${FormatearNumeroAPesos(
+        pagoMensualSinParsear3Meses.toFixed(2)
+      )}`;
+      document.getElementById("elegir-plazo-3").style.color = "#868d97";
+      (document.getElementById("elegir-plazo-3").style.fontFamily =
+        "PP Open Sans"),
+        "sans-serif";
+      let pagoMensualSinParsear6Meses = obtenerPagoMensual(6);
+      document.getElementById(
+        "elegir-plazo-6"
+      ).textContent = `6 pagos de ${FormatearNumeroAPesos(
+        pagoMensualSinParsear6Meses.toFixed(2)
+      )}`;
+      document.getElementById("elegir-plazo-6").style.color = "#868d97";
+      (document.getElementById("elegir-plazo-6").style.fontFamily =
+        "PP Open Sans"),
+        "sans-serif";
+      let pagoMensualSinParsear9Meses = obtenerPagoMensual(9);
+      document.getElementById(
+        "elegir-plazo-9"
+      ).textContent = `9 pagos de ${FormatearNumeroAPesos(
+        pagoMensualSinParsear9Meses.toFixed(2)
+      )}`;
+      document.getElementById("elegir-plazo-9").style.color = "#868d97";
+      (document.getElementById("elegir-plazo-9").style.fontFamily =
+        "PP Open Sans"),
+        "sans-serif";
+      let pagoMensualSinParsear12Meses = obtenerPagoMensual(12);
+      document.getElementById(
+        "elegir-plazo-12"
+      ).textContent = `12 pagos de ${FormatearNumeroAPesos(
+        pagoMensualSinParsear12Meses.toFixed(2)
+      )}`;
+      document.getElementById("elegir-plazo-12").style.color = "#868d97";
+      (document.getElementById("elegir-plazo-12").style.fontFamily =
+        "PP Open Sans"),
+        "sans-serif";
+      if (monto < 3000) {
+        document.getElementById("plazo").firstChild.textContent =
+          "12 pagos de ";
+        document.getElementById(
+          "pagoMensual"
+        ).textContent = `${FormatearNumeroAPesos(
+          pagoMensualSinParsear12Meses.toFixed(2)
+        )}`;
+        document.getElementById(
+          "pagarias-text"
+        ).textContent = `${FormatearNumeroAPesos(
+          (pagoMensualSinParsear12Meses * 12).toFixed(2)
+        )}`;
+        document.getElementById("radio1").checked = "true";
+        document.getElementById("elegir-plazo-12").style.color = "#6168db";
+        (document.getElementById("elegir-plazo-12").style.fontFamily =
+          "PP Open Sans Bold"),
+          "sans-serif";
+        plazo = 12;
+        pagoMensualResumen = pagoMensualSinParsear12Meses;
+      }
+      let radioBt1 = document.getElementById("radio1");
+      let radioBtn2 = document.getElementById("radio2");
+      let radioBtn3 = document.getElementById("radio3");
+      let radioBtn4 = document.getElementById("radio4");
+      radioBt1.addEventListener("change", function () {
+        if (radioBt1.checked) {
+          let pagoMensualParseado = obtenerPagoMensual(12);
+          document.getElementById("plazo").firstChild.textContent =
+            "12 pagos de ";
+          document.getElementById(
+            "pagoMensual"
+          ).textContent = `${FormatearNumeroAPesos(
+            pagoMensualParseado.toFixed(2)
+          )}`;
+          document.getElementById(
+            "pagarias-text"
+          ).textContent = `${FormatearNumeroAPesos(
+            (pagoMensualParseado * 12).toFixed(2)
+          )}`;
+          document.getElementById("elegir-plazo-3").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-3").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-6").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-6").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-9").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-9").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-12").style.color = "#6168db";
+          (document.getElementById("elegir-plazo-12").style.fontFamily =
+            "PP Open Sans Bold"),
+            "sans-serif";
+          if (monto >= 3000) {
+            document.getElementById("elegir-plazo-15").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-15").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+            document.getElementById("elegir-plazo-18").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-18").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+          }
+          plazo = 12;
+          pagoMensualResumen = pagoMensualParseado;
+        }
+      });
+      radioBtn2.addEventListener("change", function () {
+        if (radioBtn2.checked) {
+          let pagoMensualParseado = obtenerPagoMensual(9);
+          document.getElementById("plazo").firstChild.textContent =
+            "9 pagos de ";
+          document.getElementById(
+            "pagoMensual"
+          ).textContent = `${FormatearNumeroAPesos(
+            pagoMensualParseado.toFixed(2)
+          )}`;
+          document.getElementById(
+            "pagarias-text"
+          ).textContent = `${FormatearNumeroAPesos(
+            (pagoMensualParseado * 9).toFixed(2)
+          )}`;
+          document.getElementById("elegir-plazo-3").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-3").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-6").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-6").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-9").style.color = "#6168db";
+          (document.getElementById("elegir-plazo-9").style.fontFamily =
+            "PP Open Sans Bold"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-12").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-12").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          if (monto >= 3000) {
+            document.getElementById("elegir-plazo-15").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-15").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+            document.getElementById("elegir-plazo-18").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-18").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+          }
+
+          plazo = 9;
+          pagoMensualResumen = pagoMensualParseado;
+        }
+      });
+      radioBtn3.addEventListener("change", function () {
+        if (radioBtn3.checked) {
+          let pagoMensualParseado = obtenerPagoMensual(6);
+          document.getElementById("plazo").firstChild.textContent =
+            "6 pagos de ";
+          document.getElementById(
+            "pagoMensual"
+          ).textContent = `${FormatearNumeroAPesos(
+            pagoMensualParseado.toFixed(2)
+          )}`;
+          document.getElementById(
+            "pagarias-text"
+          ).textContent = `${FormatearNumeroAPesos(
+            (pagoMensualParseado * 6).toFixed(2)
+          )}`;
+          document.getElementById("elegir-plazo-3").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-3").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-6").style.color = "#6168db";
+          (document.getElementById("elegir-plazo-6").style.fontFamily =
+            "PP Open Sans Bold"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-9").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-9").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-12").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-12").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          if (monto >= 3000) {
+            document.getElementById("elegir-plazo-15").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-15").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+            document.getElementById("elegir-plazo-18").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-18").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+          }
+          plazo = 6;
+          pagoMensualResumen = pagoMensualParseado;
+        }
+      });
+      radioBtn4.addEventListener("change", function () {
+        if (radioBtn4.checked) {
+          let pagoMensualParseado = obtenerPagoMensual(3);
+          document.getElementById("plazo").firstChild.textContent =
+            "3 pagos de ";
+          document.getElementById(
+            "pagoMensual"
+          ).textContent = `${FormatearNumeroAPesos(
+            pagoMensualParseado.toFixed(2)
+          )}`;
+          document.getElementById(
+            "pagarias-text"
+          ).textContent = `${FormatearNumeroAPesos(
+            (pagoMensualParseado * 3).toFixed(2)
+          )}`;
+          document.getElementById("elegir-plazo-3").style.color = "#6168db";
+          (document.getElementById("elegir-plazo-3").style.fontFamily =
+            "PP Open Sans Bold"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-6").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-6").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-9").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-9").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          document.getElementById("elegir-plazo-12").style.color = "#868d97";
+          (document.getElementById("elegir-plazo-12").style.fontFamily =
+            "PP Open Sans"),
+            "sans-serif";
+          if (monto >= 3000) {
+            document.getElementById("elegir-plazo-15").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-15").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+            document.getElementById("elegir-plazo-18").style.color = "#868d97";
+            (document.getElementById("elegir-plazo-18").style.fontFamily =
+              "PP Open Sans"),
+              "sans-serif";
+          }
+          plazo = 3;
+          pagoMensualResumen = pagoMensualParseado;
+        }
+      });
+    }
+  </script>
+  <script>
+    var cleaveMontoEditar = "";
+    function guardarMonto() {
+      montoFormatted = cleaveMontoEditar.getFormattedValue();
+      monto = Number(cleaveMontoEditar.getRawValue());
+      if (monto >= 500) {
+        document.getElementById("errorMessageInputEditar").style.display =
+          "none";
+        document.getElementById(
+          "monto-editado"
+        ).outerHTML = `<p id="monto-a-simular">$${montoFormatted}</p>`;
+        document.getElementById("monto-a-simular-icon-edit-OK").outerHTML =
+          '<img class="monto-a-simular-icon-edit" id="monto-a-simular-icon-edit" src="./icon-edit.svg" alt="" onclick="editarMonto()">';
+        pintarPlazos();
+      } else {
+        return;
+      }
+    }
+    function editarMonto() {
+      document.getElementById("monto-a-simular").outerHTML =
+        '<input type="text" class="monto-editar-input" id="monto-editado" value="">';
+      document.getElementById("monto-editado").focus();
+      cleaveMontoEditar = new Cleave(".monto-editar-input", {
+        numeral: true,
+        numeralThousandsGroupStyle: "thousand",
+      });
+      let inputEditarMonto = document.getElementById("monto-editado");
+      inputMontoValidation(inputEditarMonto, cleaveMontoEditar, 2);
+      document.getElementById("monto-a-simular-icon-edit").outerHTML =
+        '<p class="monto-a-simular-icon-edit-OK" id="monto-a-simular-icon-edit-OK" onclick="guardarMonto()">OK</p>';
+    }
+  </script>
+  <script>
+    function handleRadioChange(plazo, pagoMensualParseado) {
+      document.getElementById("plazo").firstChild.textContent =
+        plazo + " pagos de ";
+      document.getElementById(
+        "pagoMensual"
+      ).textContent = `${FormatearNumeroAPesos(
+        pagoMensualParseado.toFixed(2)
+      )}`;
+      document.getElementById(
+        "pagarias-text"
+      ).textContent = `${FormatearNumeroAPesos(
+        (pagoMensualParseado * plazo).toFixed(2)
+      )}`;
+
+      const plazos = [3, 6, 9, 12, 15, 18];
+      plazos.forEach((plazo) => {
+        const element = document.getElementById(`elegir-plazo-${plazo}`);
+        element.style.color = "#868d97";
+        element.style.fontFamily = "PP Open Sans, sans-serif";
+      });
+
+      const selectedPlazoElement = document.getElementById(
+        `elegir-plazo-${plazo}`
+      );
+      selectedPlazoElement.style.color = "#6168db";
+      selectedPlazoElement.style.fontFamily = "PP Open Sans Bold, sans-serif";
+    }
+  </script>
+</html>

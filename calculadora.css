@@ -1,0 +1,432 @@
+:root {
+  --color-rojo: #ff4242;
+  --color-rojo-apagado: #ffe3e3;
+  --color-amarillo: #ffba42;
+  --color-amarillo-apagado: #fff5e3;
+  --color-verde: #24b297;
+  --color-verde-apagado: #dff4f3;
+  --color-gris: #eceff3;
+  --color-azul: #6168db;
+}
+* {
+  -webkit-margin: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-padding: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans";
+  font-family: "PP Open Sans";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans Heavy";
+  font-family: "PP Open Sans Heavy";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans Bold";
+  font-family: "PP Open Sans Bold";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+body {
+  position: relative;
+  background-color: white;
+  height: 100vh;
+  font-family: "PP Open Sans", "sans-serif";
+  color: #2f343c;
+}
+.container {
+  display: flex;
+  position: absolute;
+  padding: 24px;
+  padding-top: 48px;
+  transition: opacity ease 0.2s;
+}
+/* Página principal */
+.monto-page-container {
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.monto-page-container p:nth-child(2) {
+  font-size: 14px;
+  font-family: "PP Open Sans", "sans-serif";
+}
+.monto-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-family: "PP Open Sans Heavy", "sans-serif";
+  font-size: 20px;
+}
+.input-with-icon {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+}
+.numberInput {
+  width: 50%;
+  text-align: right;
+  padding-right: 8px;
+  font-family: "PP Open Sans Heavy", "sans-serif";
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+}
+.errorMessageInput {
+  display: none;
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  font-size: 12px !important;
+  font-family: 'PP Open Sans','sans-serif';
+  color: var(--color-rojo);
+  
+}
+.errorMessageInputEditar {
+ width: 250px;
+  display: none;
+  content: "";
+  position: relative;
+  bottom: -18px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  font-size: 12px !important;
+  font-family: 'PP Open Sans','sans-serif';
+  color: var(--color-rojo);
+  
+}
+.monto-editar-input {
+  width: 50%;
+  text-align: center;
+  padding-left: 8px;
+  font-family: "PP Open Sans Heavy", "sans-serif";
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+
+}
+.monto-editar-input:focus {
+  outline: none;
+}
+.numberInput:focus {
+  outline: none;
+}
+.arrow-container {
+  display: flex;
+justify-content: flex-end;
+  font-size: 10px;
+  align-items: center;
+  margin: -10px 0;
+}
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--color-gris);
+  padding: 26px 24px;
+  border-radius: 20px;
+}
+.back-button {
+  width: 32px;
+}
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e845effe004d67cd50/original.svg?1708716264");
+  background-size: contain;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  background-image: url("https://braze-images.com/appboy/communication/assets/svg_assets/files/65d8f0e88841a7004c508b1b/original.svg?1708716264");
+}
+.resumen-pagos {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+/* Página preview mensualidades */
+
+.seleccion-plazo-page {
+  width: 100%;
+  flex-direction: column;
+  gap: 24px;
+  background-color: white;
+  overflow-y: hidden;
+  display: none;
+}
+.monto-a-simular-container,
+.monto-simulado-container {
+  text-align: center;
+}
+.monto-a-simular-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.monto-a-simular-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 200px;
+  font-size: 20px;
+  font-family: "PP Open Sans Bold", "sans-serif";
+}
+.monto-a-simular-icon-edit {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
+}
+.monto-a-simular-icon-edit-OK {
+  position: absolute;
+  content: "";
+  right: 10px;
+  top: -3px;
+  cursor: pointer;
+}
+.monto-simulado-container p:nth-child(1) {
+  color: var(--color-azul);
+  font-size: 20px;
+}
+.monto-simulado-container p:nth-child(2) {
+  font-size: 16px;
+}
+.monto-simulado-container span {
+  font-family: "PP Open Sans Bold", "sans-serif";
+}
+.tasa-preferencial-container p {
+  color: #868d97;
+  font-size: 12px;
+  text-align: center;
+}
+hr {
+  width: 100%;
+  border-color: rgba(231, 232, 233, 0.2);
+  height: 0;
+}
+.elige-plazo-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 14px;
+}
+.select-payment-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 26px 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(33, 34, 36, 0.08);
+}
+.card p {
+  font-size: 14px;
+}
+.pagos {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #868d97;
+}
+.ver-dettalles-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 14px;
+  color: var(--color-azul);
+  font-family: 'PP Open Sans Bold', 'sans-serif';
+}
+button{
+  -webkit-margin: 0 auto;
+  margin: 0 auto;
+  padding: 18px 16px;
+  border-radius: 100px;
+  background-color: #6168db;
+  border-style: none;
+  width: 100%;
+  color: white;
+  font-family: "PP Open Sans Bold", "sans-serif";
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+/* pagina resumen de plazos */
+.resumen-plazos-page {
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 48px;
+  text-align: left;
+  background-color: white;
+  overflow: hidden;
+  display: none;
+}
+.resumen-plazos-page > p:nth-last-child(2) {
+  font-size: 14px;
+  font-family: "PP Open Sans Bold", "sans-serif";
+  color: var(--color-azul);
+}
+.resumen-plazos-page > p:nth-last-child(3) {
+  font-size: 14px;
+  font-family: "PP Open Sans", "sans-serif";
+  color: #868d97;
+}
+.title-resumen-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #868d97;
+}
+.pago-resumen-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pago-resumen-container > p:nth-child(2) {
+  font-size: 14px;
+}
+.pago-container {
+  width: 60%;
+  display: flex;
+  place-items: center;
+  justify-content: space-around;
+}
+.pago-container > p {
+  color: var(--color-azul);
+  font-size: 20px;
+}
+.pago{
+  min-width: 110px;
+}
+.pago p:nth-child(1) {
+  font-size: 14px;
+}
+.pago p:nth-child(2) {
+  color: #868d97;
+  font-size: 12px;
+}
+.pago p:nth-child(3) {
+  color: #868d97;
+  font-size: 10px;
+}
+.page3Title{
+  font-size: 20px;
+}
+
+
+
+/* Animaciones */
+
+.slide-in-bottom {
+  -webkit-animation: slide-in-bottom 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-bottom 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-in-bottom-reverse {
+  -webkit-animation: slide-in-bottom-reverse 0.2s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+  animation: slide-in-bottom-reverse 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    reverse both;
+}
+
+@-webkit-keyframes slide-in-bottom-reverse {
+  0% {
+    -webkit-transform: translateX(1000px);
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -webkit-opacity: 1;
+  }
+}
+@keyframes slide-in-bottom-reverse {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.shake-element {
+  animation: shake 0.6s ease-in-out;
+}
