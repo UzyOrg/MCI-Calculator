@@ -45,23 +45,28 @@
   /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
 }
 body {
+  width: 100%;
   position: relative;
-  background-color: white;
+  color: #2f343c;
   height: 100vh;
   font-family: "PP Open Sans", "sans-serif";
-  color: #2f343c;
 }
+
 .container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll !important;
+  background-color: #fff;
   display: flex;
-  position: absolute;
   padding: 24px;
   padding-top: 48px;
   transition: opacity ease 0.2s;
 }
 /* Página principal */
 .monto-page-container {
+  background-color: #fff;
   flex-direction: column;
-  justify-content: center;
   gap: 24px;
 }
 .monto-page-container p:nth-child(2) {
@@ -295,7 +300,6 @@ button{
   gap: 24px;
   padding-top: 48px;
   text-align: left;
-  background-color: white;
   overflow: hidden;
   display: none;
 }
