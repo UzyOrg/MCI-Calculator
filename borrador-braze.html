@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +8,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
     <title>Document</title>
-    <link rel="stylesheet" href="./calculadora.css" />
+    <link rel="stylesheet" href="https://braze-images.com/appboy/communication/assets/code_assets/files/65f1fc87b4c1ca004b86f05a/original.css?1710357639" />
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
   </head>
   <body>
@@ -24,13 +25,7 @@
       <div class="monto-container" id="monto-container">
         <span>Monto</span>
         <div class="input-with-icon" id="input-with-icon">
-          <input
-            class="numberInput"
-            placeholder="$0"
-            type="text"
-            id="input"
-            inputmode="numeric"
-          />
+          <input class="numberInput" placeholder="$0" type="text" id="input" inputmode="numeric"/>
           <p class="errorMessageInput" id="errorMessageInput">
             Ingrese un valor mayor o igual a $500.
           </p>
@@ -45,34 +40,22 @@
       </div>
       <!-- <hr /> -->
       <div class="arrow-container">
-        <svg
-          width="21"
-          height="22"
-          viewBox="0 0 21 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            id="arrow"
-            class="chevron-path"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M10.4998 0.500488C4.7004 0.500488 -0.000244141 5.20113 -0.000244141 11.0005C-0.000244141 16.7998 4.7004 21.5005 10.4998 21.5005C16.2991 21.5005 20.9998 16.7998 20.9998 11.0005C20.9998 5.20113 16.2991 0.500488 10.4998 0.500488ZM10.3839 6.11582C9.89573 5.62766 9.10427 5.62766 8.61612 6.11582C8.12796 6.60397 8.12796 7.39543 8.61612 7.88358L11.7323 10.9998L8.61612 14.116C8.12796 14.6041 8.12796 15.3956 8.61612 15.8838C9.10427 16.3719 9.89573 16.3719 10.3839 15.8838L14.384 11.8837C14.8721 11.3955 14.8721 10.6041 14.384 10.1159L10.3839 6.11582Z"
-            fill="black"
-          />
+        <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg" id="svg-arrow">
+          <path id="arrow" class="chevron-path" fill-rule="evenodd" clip-rule="evenodd" d="M10.4998 0.500488C4.7004 0.500488 -0.000244141 5.20113 -0.000244141 11.0005C-0.000244141 16.7998 4.7004 21.5005 10.4998 21.5005C16.2991 21.5005 20.9998 16.7998 20.9998 11.0005C20.9998 5.20113 16.2991 0.500488 10.4998 0.500488ZM10.3839 6.11582C9.89573 5.62766 9.10427 5.62766 8.61612 6.11582C8.12796 6.60397 8.12796 7.39543 8.61612 7.88358L11.7323 10.9998L8.61612 14.116C8.12796 14.6041 8.12796 15.3956 8.61612 15.8838C9.10427 16.3719 9.89573 16.3719 10.3839 15.8838L14.384 11.8837C14.8721 11.3955 14.8721 10.6041 14.384 10.1159L10.3839 6.11582Z" fill="black"/>
         </svg>
+          
       </div>
       <!-- <hr /> -->
       <div class="card">
-        <img src="./notification-icon.svg" alt="" />
+        <img src="./notification-icon.svg" alt="">
         <div class="card-text-container">
           <p>
-            Con este simulador descubre cuánto pagarías por una compra en el
-            futuro.
+            Con este simulador descubre cuánto pagarías por una compra en el futuro.
           </p>
           <p>Al usarlo no difieres ninguna compra.</p>
         </div>
       </div>
+      
     </div>
     <!-- Fin Página 1 -->
 
@@ -147,15 +130,14 @@
       </div>
       <div class="ver-dettalles-container">
         <p id="ver-detalles">Ver más detalle de las mensualidades</p>
-        <img src="./chevron-sin-fondo.svg" alt="" />
+        <img src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65f1fc45b9aaaf004c63a645/original.svg?1710357573" alt="">
       </div>
-      <button>Ir a diferir compras</button>
+      <button >Ir a diferir compras</button>
       <div class="card">
-        <img src="./notification-icon.svg" alt="" />
+        <img src="./notification-icon.svg" alt="">
         <div class="card-text-container">
           <p>
-            Con este simulador descubre cuánto pagarías por una compra en el
-            futuro.
+            Con este simulador descubre cuánto pagarías por una compra en el futuro.
           </p>
           <p>Al usarlo no difieres ninguna compra.</p>
         </div>
@@ -183,7 +165,7 @@
         <p onclick="backMainPage('page3')" class="volver-simulador-page">
           Volver al simulador
         </p>
-        <img src="./chevron-sin-fondo.svg" alt="" />
+        <img src="https://braze-images.com/appboy/communication/assets/svg_assets/files/65f1fc45b9aaaf004c63a645/original.svg?1710357573" alt="">
       </div>
       <button>Ir a Diferir Compras</button>
     </div>
@@ -218,7 +200,7 @@
           });
         }
         const rawValue = cleave.getRawValue().replace("$", "");
-        if (rawValue < 500) {
+       if (rawValue < 500) {
           if (page == 1) {
             document.getElementById("errorMessageInput").style.display =
               "block";
@@ -259,7 +241,7 @@
           event.preventDefault();
 
           // 'Hace clic' en el botón de continuar
-          document.getElementById("arrow").click();
+          document.getElementById("svg-arrow").click();
         }
       });
     };
@@ -308,7 +290,7 @@
         numeralThousandsGroupStyle: "thousand",
       });
       inputMontoValidation(inputElement, cleave, 1);
-      const amountCheckArrow = document.getElementById("arrow");
+      const amountCheckArrow = document.getElementById("svg-arrow");
       amountCheckArrow.addEventListener("click", function () {
         monto = Number(cleave.getRawValue().replace("$", ""));
         montoFormatted = cleave.getFormattedValue();
@@ -780,3 +762,4 @@
     }
   </script>
 </html>
+
